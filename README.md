@@ -7,6 +7,3 @@ Perpustakaan cerita kosmik interaktif berbasis web. Memuat kisah **ASMODEUS VS A
 - Simpan cerita dan bab di localStorage
 - Tambah, edit, hapus bab
 - Tampilan responsif bertema kosmik
-
-## Akses
-Kunjungi: https://username.github.io/axryzure-hystori-cosmic/
