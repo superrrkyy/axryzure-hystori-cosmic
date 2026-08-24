@@ -19,426 +19,142 @@
       --success: #22c55e;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       background-image:
         radial-gradient(circle at 20% 30%, rgba(168,85,247,0.08) 0%, transparent 30%),
         radial-gradient(circle at 80% 70%, rgba(6,182,212,0.06) 0%, transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(0,0,0,0.9) 0%, transparent 100%);
     }
 
-    /* ========== LOGIN SCREEN ========== */
+    /* LOGIN */
     #login-screen {
-      width: 100%;
-      max-width: 420px;
-      padding: 2rem;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: 1.5rem;
-      box-shadow: 0 0 40px rgba(168,85,247,0.2), 0 20px 60px rgba(0,0,0,0.6);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      width:100%; max-width:420px; padding:2rem;
+      background:var(--bg-secondary);
+      border:1px solid var(--border-color);
+      border-radius:1.5rem;
+      box-shadow:0 0 40px rgba(168,85,247,0.2), 0 20px 60px rgba(0,0,0,0.6);
+      text-align:center; position:relative; overflow:hidden;
     }
-
     #login-screen::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
+      content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
       background: conic-gradient(from 180deg, transparent, rgba(168,85,247,0.1), transparent, rgba(6,182,212,0.1), transparent);
-      animation: rotateGlow 8s linear infinite;
-      pointer-events: none;
+      animation: rotateGlow 8s linear infinite; pointer-events:none;
     }
-
-    @keyframes rotateGlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
+    @keyframes rotateGlow { from { transform:rotate(0deg);} to { transform:rotate(360deg);} }
     #login-screen h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: 2px;
+      font-size:2.2rem; font-weight:800; letter-spacing:2px;
       background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 1;
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      margin-bottom:0.5rem; position:relative; z-index:1;
     }
-
-    #login-screen p {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .login-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
+    #login-screen p { color:var(--text-secondary); font-size:0.9rem; margin-bottom:2rem; position:relative; z-index:1; }
+    .login-form { display:flex; flex-direction:column; gap:1rem; position:relative; z-index:1; }
     .login-form input {
-      padding: 0.9rem 1.2rem;
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 0.75rem;
-      color: var(--text-primary);
-      font-size: 1rem;
-      outline: none;
-      transition: border 0.2s, box-shadow 0.2s;
+      padding:0.9rem 1.2rem; background:var(--bg-primary);
+      border:1px solid var(--border-color); border-radius:0.75rem;
+      color:var(--text-primary); font-size:1rem; outline:none;
+      transition:border 0.2s, box-shadow 0.2s;
     }
-
-    .login-form input:focus {
-      border-color: var(--accent-1);
-      box-shadow: 0 0 0 3px rgba(168,85,247,0.2);
-    }
-
+    .login-form input:focus { border-color:var(--accent-1); box-shadow:0 0 0 3px rgba(168,85,247,0.2); }
     .btn {
-      padding: 0.8rem 1.5rem;
-      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-      border: none;
-      border-radius: 0.75rem;
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-      letter-spacing: 1px;
+      padding:0.8rem 1.5rem; background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      border:none; border-radius:0.75rem; color:white; font-weight:600; font-size:1rem;
+      cursor:pointer; transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; letter-spacing:1px;
     }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(168,85,247,0.3); }
+    .btn:active { transform: translateY(0); }
+    .btn-outline { background:transparent; border:1px solid var(--border-color); color:var(--text-primary); }
+    .btn-outline:hover { border-color:var(--accent-1); background:rgba(168,85,247,0.05); box-shadow:none; }
+    .btn-danger { background:var(--danger); box-shadow:0 4px 15px rgba(239,68,68,0.2); }
+    .btn-sm { padding:0.5rem 0.9rem; font-size:0.85rem; }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(168,85,247,0.3);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent-1);
-      background: rgba(168,85,247,0.05);
-      box-shadow: none;
-    }
-
-    .btn-danger {
-      background: var(--danger);
-      box-shadow: 0 4px 15px rgba(239,68,68,0.2);
-    }
-
-    .btn-sm {
-      padding: 0.5rem 0.9rem;
-      font-size: 0.85rem;
-    }
-
-    /* ========== APP SCREEN ========== */
-    #app-screen {
-      display: none;
-      width: 100%;
-      height: 100vh;
-      flex-direction: column;
-    }
-
+    /* APP */
+    #app-screen { display:none; width:100%; height:100vh; flex-direction:column; }
     .app-header {
-      background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-color);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      background:var(--bg-secondary); border-bottom:1px solid var(--border-color);
+      padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:0.5rem;
     }
-
     .app-header h1 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      font-size:1.4rem; font-weight:700; letter-spacing:1px;
       background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     }
+    .user-info { display:flex; align-items:center; gap:1rem; }
+    .user-info span { color:var(--text-secondary); font-size:0.9rem; }
 
-    .user-info {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .user-info span {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-
-    .app-body {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
-
+    .app-body { display:flex; flex:1; overflow:hidden; }
     .sidebar {
-      width: 280px;
-      background: var(--bg-secondary);
-      border-right: 1px solid var(--border-color);
-      padding: 1.5rem 1rem;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      width:280px; background:var(--bg-secondary); border-right:1px solid var(--border-color);
+      padding:1.5rem 1rem; overflow-y:auto; display:flex; flex-direction:column; gap:1rem;
     }
-
-    .sidebar h2 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
+    .sidebar h2 { font-size:0.85rem; text-transform:uppercase; letter-spacing:2px; color:var(--text-secondary); margin-bottom:0.5rem; }
+    .search-box {
+      padding:0.6rem 0.8rem; background:var(--bg-primary); border:1px solid var(--border-color);
+      border-radius:0.5rem; color:var(--text-primary); font-size:0.9rem; outline:none;
     }
-
-    .story-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
+    .search-box:focus { border-color:var(--accent-2); }
+    .story-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
     .story-list-item {
-      padding: 0.8rem 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 0.6rem;
-      cursor: pointer;
-      transition: border 0.2s, background 0.2s;
-      font-weight: 500;
+      padding:0.8rem 1rem; background:var(--bg-card); border:1px solid var(--border-color);
+      border-radius:0.6rem; cursor:pointer; transition: border 0.2s, background 0.2s; font-weight:500;
     }
+    .story-list-item:hover { border-color:var(--accent-1); background:rgba(168,85,247,0.05); }
+    .story-list-item.active { border-color:var(--accent-1); background:rgba(168,85,247,0.1); box-shadow:0 0 15px rgba(168,85,247,0.1); }
+    .story-list-item .story-desc { font-size:0.75rem; color:var(--text-secondary); margin-top:0.25rem; font-weight:400; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .story-actions { display:flex; gap:0.3rem; margin-top:0.5rem; }
+    .story-actions button { font-size:0.7rem; padding:0.25rem 0.5rem; }
 
-    .story-list-item:hover {
-      border-color: var(--accent-1);
-      background: rgba(168,85,247,0.05);
-    }
-
-    .story-list-item.active {
-      border-color: var(--accent-1);
-      background: rgba(168,85,247,0.1);
-      box-shadow: 0 0 15px rgba(168,85,247,0.1);
-    }
-
-    .story-list-item .story-desc {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      margin-top: 0.25rem;
-      font-weight: 400;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .main-content {
-      flex: 1;
-      padding: 1.5rem 2rem;
-      overflow-y: auto;
-      background: var(--bg-primary);
-    }
-
-    .chapter-list-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .chapter-list-header h2 {
-      font-size: 1.3rem;
-      color: var(--accent-glow);
-    }
-
-    .chapter-buttons {
-      display: flex;
-      gap: 0.5rem;
-    }
-
+    .main-content { flex:1; padding:1.5rem 2rem; overflow-y:auto; background:var(--bg-primary); }
+    .chapter-list-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; flex-wrap:wrap; gap:0.8rem; }
+    .chapter-list-header h2 { font-size:1.3rem; color:var(--accent-glow); }
+    .chapter-buttons { display:flex; gap:0.5rem; }
     .chapter-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 0.7rem;
-      padding: 1rem 1.2rem;
-      margin-bottom: 0.8rem;
-      cursor: pointer;
-      transition: border 0.2s, background 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      background:var(--bg-card); border:1px solid var(--border-color); border-radius:0.7rem;
+      padding:1rem 1.2rem; margin-bottom:0.8rem; cursor:pointer;
+      transition: border 0.2s, background 0.2s; display:flex; align-items:center; justify-content:space-between;
     }
-
-    .chapter-item:hover {
-      border-color: var(--accent-2);
-      background: rgba(6,182,212,0.03);
-    }
-
-    .chapter-item .chapter-title {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .chapter-item .chapter-actions {
-      display: flex;
-      gap: 0.4rem;
-    }
-
+    .chapter-item:hover { border-color:var(--accent-2); background:rgba(6,182,212,0.03); }
+    .chapter-item .chapter-title { font-weight:600; font-size:1rem; }
+    .chapter-item .chapter-actions { display:flex; gap:0.4rem; }
     .reader-view {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.8;
-      white-space: pre-wrap;
-      font-size: 0.95rem;
-      color: var(--text-primary);
+      background:var(--bg-card); border:1px solid var(--border-color); border-radius:1rem;
+      padding:2rem; max-width:900px; margin:0 auto; line-height:1.8; white-space:pre-wrap; font-size:0.95rem;
     }
+    .reader-view h3 { font-size:1.8rem; margin-bottom:1.5rem; background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 
-    .reader-view h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    /* MODAL */
+    .modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:100; align-items:center; justify-content:center; padding:1rem; }
+    .modal-overlay.active { display:flex; }
+    .modal { background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:1rem; padding:2rem; width:100%; max-width:700px; max-height:90vh; overflow-y:auto; box-shadow:0 0 60px rgba(0,0,0,0.8), 0 0 30px rgba(168,85,247,0.2); }
+    .modal h2 { margin-bottom:1.5rem; font-size:1.4rem; background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .form-group { margin-bottom:1.2rem; }
+    .form-group label { display:block; margin-bottom:0.4rem; font-weight:500; color:var(--text-secondary); font-size:0.9rem; }
+    .form-group input, .form-group textarea { width:100%; padding:0.8rem 1rem; background:var(--bg-primary); border:1px solid var(--border-color); border-radius:0.6rem; color:var(--text-primary); font-size:0.95rem; outline:none; }
+    .form-group textarea { min-height:200px; resize:vertical; font-family:'Courier New', monospace; line-height:1.6; }
+    .form-actions { display:flex; gap:0.8rem; margin-top:1.5rem; justify-content:flex-end; }
 
-    /* ========== MODAL ========== */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 2rem;
-      width: 100%;
-      max-width: 700px;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 0 60px rgba(0,0,0,0.8), 0 0 30px rgba(168,85,247,0.2);
-    }
-
-    .modal h2 {
-      margin-bottom: 1.5rem;
-      font-size: 1.4rem;
-      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.4rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 0.6rem;
-      color: var(--text-primary);
-      font-size: 0.95rem;
-      outline: none;
-    }
-
-    .form-group textarea {
-      min-height: 200px;
-      resize: vertical;
-      font-family: 'Courier New', monospace;
-      line-height: 1.6;
-    }
-
-    .form-actions {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-      justify-content: flex-end;
-    }
-
-    /* responsive */
-    @media (max-width: 768px) {
-      .app-body {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        height: auto;
-        max-height: 200px;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-      }
-      .main-content {
-        padding: 1rem;
-      }
-      .reader-view {
-        padding: 1.2rem;
-      }
-      .app-header h1 {
-        font-size: 1.1rem;
-      }
+    @media (max-width:768px) {
+      .app-body { flex-direction:column; }
+      .sidebar { width:100%; height:auto; max-height:200px; border-right:none; border-bottom:1px solid var(--border-color); }
+      .main-content { padding:1rem; }
+      .reader-view { padding:1.2rem; }
+      .app-header h1 { font-size:1.1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- LOGIN SCREEN -->
+  <!-- LOGIN -->
   <div id="login-screen">
     <h1>AXRYZURE</h1>
     <p>THE HYSTORI COSMIC</p>
@@ -448,7 +164,7 @@
     </form>
   </div>
 
-  <!-- APP SCREEN -->
+  <!-- APP -->
   <div id="app-screen">
     <header class="app-header">
       <h1>AXRYZURE</h1>
@@ -460,6 +176,7 @@
     <div class="app-body">
       <aside class="sidebar">
         <h2>Daftar Cerita</h2>
+        <input type="text" id="search-input" class="search-box" placeholder="Cari cerita...">
         <ul class="story-list" id="story-list"></ul>
         <button class="btn btn-outline btn-sm" id="btn-add-story">+ Tambah Cerita</button>
       </aside>
@@ -473,17 +190,24 @@
   <div class="modal-overlay" id="modal-add-story">
     <div class="modal">
       <h2>Tambah Cerita Baru</h2>
-      <div class="form-group">
-        <label>Judul Cerita</label>
-        <input type="text" id="new-story-title" placeholder="Contoh: THE WAR OF REALMS">
-      </div>
-      <div class="form-group">
-        <label>Deskripsi Singkat</label>
-        <input type="text" id="new-story-desc" placeholder="Satu kalimat tentang cerita ini">
-      </div>
+      <div class="form-group"><label>Judul Cerita</label><input type="text" id="new-story-title" placeholder="Contoh: THE WAR OF REALMS"></div>
+      <div class="form-group"><label>Deskripsi Singkat</label><input type="text" id="new-story-desc" placeholder="Satu kalimat tentang cerita ini"></div>
       <div class="form-actions">
         <button class="btn btn-outline" onclick="closeModal('modal-add-story')">Batal</button>
         <button class="btn" id="btn-save-new-story">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL EDIT STORY -->
+  <div class="modal-overlay" id="modal-edit-story">
+    <div class="modal">
+      <h2>Edit Cerita</h2>
+      <div class="form-group"><label>Judul Cerita</label><input type="text" id="edit-story-title"></div>
+      <div class="form-group"><label>Deskripsi Singkat</label><input type="text" id="edit-story-desc"></div>
+      <div class="form-actions">
+        <button class="btn btn-outline" onclick="closeModal('modal-edit-story')">Batal</button>
+        <button class="btn" id="btn-update-story">Perbarui</button>
       </div>
     </div>
   </div>
@@ -492,14 +216,8 @@
   <div class="modal-overlay" id="modal-add-chapter">
     <div class="modal">
       <h2>Tambah Bab / Lanjutan</h2>
-      <div class="form-group">
-        <label>Judul Bab</label>
-        <input type="text" id="new-chapter-title" placeholder="Contoh: THE AWAKENING">
-      </div>
-      <div class="form-group">
-        <label>Isi Bab</label>
-        <textarea id="new-chapter-content" placeholder="Tulis cerita di sini..."></textarea>
-      </div>
+      <div class="form-group"><label>Judul Bab</label><input type="text" id="new-chapter-title" placeholder="Contoh: THE AWAKENING"></div>
+      <div class="form-group"><label>Isi Bab</label><textarea id="new-chapter-content" placeholder="Tulis cerita di sini..."></textarea></div>
       <div class="form-actions">
         <button class="btn btn-outline" onclick="closeModal('modal-add-chapter')">Batal</button>
         <button class="btn" id="btn-save-new-chapter">Simpan Bab</button>
@@ -511,14 +229,8 @@
   <div class="modal-overlay" id="modal-edit-chapter">
     <div class="modal">
       <h2>Edit Bab</h2>
-      <div class="form-group">
-        <label>Judul Bab</label>
-        <input type="text" id="edit-chapter-title">
-      </div>
-      <div class="form-group">
-        <label>Isi Bab</label>
-        <textarea id="edit-chapter-content"></textarea>
-      </div>
+      <div class="form-group"><label>Judul Bab</label><input type="text" id="edit-chapter-title"></div>
+      <div class="form-group"><label>Isi Bab</label><textarea id="edit-chapter-content"></textarea></div>
       <div class="form-actions">
         <button class="btn btn-outline" onclick="closeModal('modal-edit-chapter')">Batal</button>
         <button class="btn" id="btn-update-chapter">Perbarui</button>
@@ -527,7 +239,7 @@
   </div>
 
   <script>
-    // ========== DATA AWAL ==========
+    // ========== DATA AWAL (DENGAN BEBERAPA CERITA) ==========
     const defaultStories = [
       {
         id: 'asmodeus-vs-azatoth',
@@ -542,20 +254,16 @@ Tidak ada ruang.
 Bahkan kata "tidak ada" belum memiliki makna.
 
 Di tempat yang berada sebelum konsep keberadaan dilahirkan, terdapat sebuah wilayah yang tidak bisa disebut alam.
-Namanya:
-THE NULL CATHEDRAL.
+Namanya: THE NULL CATHEDRAL.
 
 Di sanalah sesuatu berdiri.
 Enam pasang sayap hitam terbentang tanpa bergerak.
 Tubuhnya seperti manusia, tetapi wajahnya tidak pernah selesai terbentuk. Di balik kepalanya terdapat lingkaran mahkota yang terbuat dari pecahan hukum realitas.
 
-Namanya adalah—
-ASMODEUS.
+Namanya adalah— ASMODEUS.
 Penguasa dari kehendak yang menolak tunduk.
-Ia bukan pencipta.
-Ia bukan penghancur.
-Ia adalah sesuatu yang jauh lebih berbahaya:
-sebuah kehendak yang mampu menolak aturan yang seharusnya mutlak.
+Ia bukan pencipta. Ia bukan penghancur.
+Ia adalah sesuatu yang jauh lebih berbahaya: sebuah kehendak yang mampu menolak aturan yang seharusnya mutlak.
 
 Asmodeus mengangkat kepalanya.
 Di hadapannya terdapat sebuah pintu.
@@ -563,315 +271,102 @@ Pintu itu tidak terbuat dari materi.
 Pintu itu adalah batas antara sesuatu yang bisa dipahami dan sesuatu yang bahkan tidak boleh dipahami.
 
 Asmodeus tersenyum.
-"Jadi di balik ini…"
-Tangannya menyentuh pintu.
-"…adalah adiknya."
+"Jadi di balik ini…" Tangannya menyentuh pintu. "…adalah adiknya."
 
 KRAAAAK.
-Retakan muncul.
-Bukan pada pintu.
-Tetapi pada konsep jarak.
+Retakan muncul. Bukan pada pintu. Tetapi pada konsep jarak.
 Seketika seluruh Null Cathedral bergetar.
+Asmodeus tertawa kecil. "Azatoth."
+Satu nama. Hanya satu nama. Namun jutaan hukum primordial langsung berhenti bekerja.
 
-Asmodeus tertawa kecil.
-"Azatoth."
-Satu nama.
-Hanya satu nama.
-Namun jutaan hukum primordial langsung berhenti bekerja.
+Kemudian— TOK.
+Satu langkah terdengar dari balik pintu. Asmodeus berhenti tersenyum.
+TOK. Langkah kedua. Kegelapan mulai kehilangan bentuknya.
+TOK. Langkah ketiga. Dan akhirnya pintu itu terbuka.
 
-Kemudian—
-TOK.
-Satu langkah terdengar dari balik pintu.
-Asmodeus berhenti tersenyum.
+Tidak ada sosok raksasa. Tidak ada monster. Tidak ada aura penghancur.
+Hanya seorang pemuda dengan pakaian sederhana berdiri di sana. Wajahnya tenang. Matanya kosong.
+Namun di dalam kekosongan itu terdapat sesuatu yang membuat Asmodeus untuk pertama kalinya merasa… diam.
 
-TOK.
-Langkah kedua.
-Kegelapan mulai kehilangan bentuknya.
+Azatoth menatapnya. "Kenapa kau datang?"
+Asmodeus mengangkat kedua tangannya. "Aku datang untuk membuktikan sesuatu." "Apa?" "Bahwa tidak ada makhluk yang benar-benar absolut."
+Azatoth tidak menjawab. Asmodeus tersenyum. "Bahkan kau."
 
-TOK.
-Langkah ketiga.
-Dan akhirnya pintu itu terbuka.
-
-Tidak ada sosok raksasa.
-Tidak ada monster.
-Tidak ada aura penghancur.
-Hanya seorang pemuda dengan pakaian sederhana berdiri di sana.
-Wajahnya tenang.
-Matanya kosong.
-Namun di dalam kekosongan itu terdapat sesuatu yang membuat Asmodeus untuk pertama kalinya merasa…
-diam.
-
-Azatoth menatapnya.
-"Kenapa kau datang?"
-
-Asmodeus mengangkat kedua tangannya.
-"Aku datang untuk membuktikan sesuatu."
-"Apa?"
-"Bahwa tidak ada makhluk yang benar-benar absolut."
-
-Azatoth tidak menjawab.
-Asmodeus tersenyum.
-"Bahkan kau."
-
-Hening.
-Lalu Azatoth berkata pelan:
-"Kalau begitu…"
-Ia menatap Asmodeus.
-"…buktikan."
+Hening. Lalu Azatoth berkata pelan: "Kalau begitu…" Ia menatap Asmodeus. "…buktikan."
 
 THE FIRST MOVEMENT
-
-Asmodeus menghilang.
-Bukan bergerak cepat.
-Bukan teleportasi.
-Ia menghapus konsep posisinya sendiri.
-Dalam sepersekian detik yang bahkan tidak bisa disebut waktu, Asmodeus sudah berada di belakang Azatoth.
-Tangannya terangkat.
-
+Asmodeus menghilang. Bukan bergerak cepat. Bukan teleportasi. Ia menghapus konsep posisinya sendiri.
+Dalam sepersekian detik yang bahkan tidak bisa disebut waktu, Asmodeus sudah berada di belakang Azatoth. Tangannya terangkat.
 NULL SOVEREIGNTY.
-Satu pukulan.
-Tidak ada ledakan.
-Tidak ada suara.
-Namun seluruh kemungkinan masa depan Azatoth terpotong.
-Dalam semua kemungkinan—
-Azatoth kalah.
-
-Asmodeus tersenyum.
-"Sudah selesai."
-
-Azatoth masih berdiri.
-Asmodeus terdiam.
-
-Azatoth menoleh.
-"Tidak."
-
-Seketika seluruh kemungkinan yang telah dipotong kembali muncul.
-Satu demi satu.
-Tak terhingga.
-Asmodeus melihatnya.
-"Bagaimana?"
-
-Azatoth menjawab:
-"Aku tidak memilih masa depan."
-Asmodeus membeku.
-"Aku adalah alasan mengapa masa depan memiliki kemungkinan."
-
-BOOM.
-Realitas pecah.
+Satu pukulan. Tidak ada ledakan. Tidak ada suara.
+Namun seluruh kemungkinan masa depan Azatoth terpotong. Dalam semua kemungkinan— Azatoth kalah.
+Asmodeus tersenyum. "Sudah selesai."
+Azatoth masih berdiri. Asmodeus terdiam.
+Azatoth menoleh. "Tidak."
+Seketika seluruh kemungkinan yang telah dipotong kembali muncul. Satu demi satu. Tak terhingga.
+Asmodeus melihatnya. "Bagaimana?"
+Azatoth menjawab: "Aku tidak memilih masa depan." Asmodeus membeku. "Aku adalah alasan mengapa masa depan memiliki kemungkinan."
+BOOM. Realitas pecah.
 
 THE SECOND MOVEMENT
-
-Asmodeus membuka keenam sayapnya.
-Dari setiap sayap muncul jutaan simbol.
-Nama-nama primordial.
-Hukum.
-Konsep.
-Kausalitas.
-Waktu.
-Ruang.
-Kematian.
-Kelahiran.
-Identitas.
+Asmodeus membuka keenam sayapnya. Dari setiap sayap muncul jutaan simbol.
+Nama-nama primordial. Hukum. Konsep. Kausalitas. Waktu. Ruang. Kematian. Kelahiran. Identitas.
 Bahkan definisi tentang "Azatoth" mulai terkoyak.
-
-Asmodeus berteriak:
-"Kalau begitu aku akan menghancurkan definisimu!"
-
-Ia menarik seluruh simbol itu menjadi satu titik.
-Kemudian—
-ABSOLUTE CONCEPT ERASURE.
-
-Serangan itu tidak menyerang tubuh.
-Ia menyerang makna keberadaan.
-Jika berhasil, Azatoth tidak akan mati.
-Karena untuk mati, seseorang harus terlebih dahulu memiliki eksistensi.
+Asmodeus berteriak: "Kalau begitu aku akan menghancurkan definisimu!"
+Ia menarik seluruh simbol itu menjadi satu titik. Kemudian— ABSOLUTE CONCEPT ERASURE.
+Serangan itu tidak menyerang tubuh. Ia menyerang makna keberadaan.
+Jika berhasil, Azatoth tidak akan mati. Karena untuk mati, seseorang harus terlebih dahulu memiliki eksistensi.
 Azatoth akan dibuat menjadi sesuatu yang tidak pernah memiliki arti untuk ada.
-
-Serangan tersebut mengenai Azatoth.
-Hening.
-Asmodeus tersenyum.
-
-Namun kemudian Azatoth berkata:
-"Menarik."
-
-Satu kata.
-Serangan itu berhenti.
-Asmodeus terkejut.
-"Kenapa?"
-
-Azatoth melihat simbol-simbol yang mengelilinginya.
-"Karena kau mencoba menghapus sesuatu yang tidak pernah bergantung pada definisi."
-Azatoth mengangkat satu jari.
-
-TING.
-Seluruh simbol Asmodeus berubah menjadi cahaya.
-Lalu menghilang.
-
-Asmodeus mundur.
-Untuk pertama kalinya—
-darah hitam menetes dari sudut mulutnya.
-Ia menyentuhnya.
-Melihat tangannya.
-Lalu tertawa.
-"Hahaha…"
-Tawanya semakin keras.
-"HAHAAHAHAHA!"
-
-Azatoth tetap diam.
-Asmodeus mengangkat kepalanya.
-"Sekarang aku mengerti."
-"Apa?"
-"Kenapa IATIA tidak pernah membiarkanmu turun ke tingkat bawah."
-
-Azatoth tidak menjawab.
-Asmodeus mengepalkan tangan.
-"Karena kalau kau benar-benar serius…"
-Ia tersenyum.
-"…seluruh hierarki eksistensi tidak akan punya alasan untuk tetap berdiri."
+Serangan tersebut mengenai Azatoth. Hening. Asmodeus tersenyum.
+Namun kemudian Azatoth berkata: "Menarik."
+Satu kata. Serangan itu berhenti. Asmodeus terkejut. "Kenapa?"
+Azatoth melihat simbol-simbol yang mengelilinginya. "Karena kau mencoba menghapus sesuatu yang tidak pernah bergantung pada definisi."
+Azatoth mengangkat satu jari. TING.
+Seluruh simbol Asmodeus berubah menjadi cahaya. Lalu menghilang.
+Asmodeus mundur. Untuk pertama kalinya— darah hitam menetes dari sudut mulutnya.
+Ia menyentuhnya. Melihat tangannya. Lalu tertawa. "Hahaha…" Tawanya semakin keras. "HAHAAHAHAHA!"
+Azatoth tetap diam. Asmodeus mengangkat kepalanya. "Sekarang aku mengerti." "Apa?" "Kenapa IATIA tidak pernah membiarkanmu turun ke tingkat bawah."
+Azatoth tidak menjawab. Asmodeus mengepalkan tangan. "Karena kalau kau benar-benar serius…" Ia tersenyum. "…seluruh hierarki eksistensi tidak akan punya alasan untuk tetap berdiri."
 
 THE THIRD MOVEMENT
-
-Asmodeus membuka matanya.
-Di dalam pupilnya muncul sesuatu yang belum pernah terlihat sebelumnya.
-THE FORBIDDEN THRONE.
+Asmodeus membuka matanya. Di dalam pupilnya muncul sesuatu yang belum pernah terlihat sebelumnya. THE FORBIDDEN THRONE.
 Sebuah kekuatan yang bahkan Asmodeus sendiri selama ini tidak pernah gunakan.
+Langit yang tidak ada berubah menjadi merah. Lantai Null Cathedral berubah menjadi putih.
+Kemudian— jutaan primordial beings muncul di belakang Asmodeus.
+Mereka adalah pasukan yang lahir sebelum konsep malaikat, iblis, dewa, dan monster. Mereka bukan prajurit. Mereka adalah fondasi perang.
+Asmodeus menunjuk Azatoth. "Serang."
+Pasukan itu bergerak. Satu juta. Seratus juta. Satu miliar. Tak terhingga.
+Namun Azatoth tidak bergerak. Ia hanya berkata: "Diam."
+SIR. Satu kata. SIR.
+Tidak ada ledakan. Tidak ada cahaya. Tidak ada kehancuran.
+Semua makhluk berhenti. Bukan karena diperintah. Mereka berhenti karena konsep gerakan untuk sementara kehilangan izin untuk eksis.
+Pasukan Asmodeus membeku. Asmodeus sendiri ikut diam. Matanya melebar. "Tidak…"
+Azatoth berjalan melewati pasukan itu. Setiap langkahnya membuat satu lapisan realitas kembali muncul.
+Dunia. Galaksi. Dimensi. Multiverse. Hyperverse. Outer realms. Semua muncul hanya karena ia berjalan.
+Asmodeus menatapnya. "Jadi ini kekuatanmu…"
+Azatoth berhenti. "Bukan." Ia menoleh. "Ini hanya caraku berjalan."
+Asmodeus tertawa pelan. "Gila…"
+Kemudian ia mencabut sesuatu dari dadanya. Sebuah pedang hitam.
+Tidak memiliki nama. Tidak memiliki bentuk tetap. Tidak memiliki sejarah.
+Namun ketika pedang itu muncul— Azatoth akhirnya berhenti.
+Asmodeus menggenggamnya. "Kalau semua hukum bisa kau hentikan…" Ia mengarahkan pedang tersebut. "…maka aku akan menggunakan sesuatu yang tidak memiliki hukum."
+THE LAST BLADE.
+Pedang itu bergerak. Tidak cepat. Tidak lambat. Ia hanya— terjadi.
+Ujung pedang menembus dada Azatoth. Asmodeus membeku.
+Azatoth melihat pedang tersebut. Kemudian melihat Asmodeus. "Bagus."
+Asmodeus terkejut. "Bagus?"
+Azatoth memegang pedang itu. "Setidaknya kau berhasil menyentuhku."
+Asmodeus tersenyum. "Bukan itu tujuanku." "Apa?" Asmodeus mendekat. "Ini."
+Pedang tersebut retak. Bukan karena Azatoth menghancurkannya. Tetapi karena Asmodeus telah memasukkan seluruh keberadaannya ke dalam satu serangan.
+Tubuh Asmodeus mulai pecah. Sayapnya terbakar. Mahkotanya runtuh. Eksistensinya mulai menghilang.
+Namun ia tersenyum. "Sekarang aku tahu jawabannya."
+Azatoth diam. Asmodeus berbisik: "Makhluk absolut bukanlah makhluk yang tidak bisa dikalahkan."
+Retakan menyebar ke seluruh tubuhnya. "Makhluk absolut adalah makhluk yang…" Ia menatap Azatoth. "…tidak membutuhkan kemenangan untuk membuktikan dirinya."
+Tubuh Asmodeus hancur menjadi jutaan pecahan cahaya hitam. Azatoth tetap berdiri. Pedang itu lenyap. Perang berakhir.
 
-Langit yang tidak ada berubah menjadi merah.
-Lantai Null Cathedral berubah menjadi putih.
-Kemudian—
-jutaan primordial beings muncul di belakang Asmodeus.
-Mereka adalah pasukan yang lahir sebelum konsep malaikat, iblis, dewa, dan monster.
-Mereka bukan prajurit.
-Mereka adalah fondasi perang.
-
-Asmodeus menunjuk Azatoth.
-"Serang."
-
-Pasukan itu bergerak.
-Satu juta.
-Seratus juta.
-Satu miliar.
-Tak terhingga.
-
-Namun Azatoth tidak bergerak.
-Ia hanya berkata:
-"Diam."
-
-SIR
-Satu kata.
-SIR.
-
-Tidak ada ledakan.
-Tidak ada cahaya.
-Tidak ada kehancuran.
-Semua makhluk berhenti.
-Bukan karena diperintah.
-Mereka berhenti karena konsep gerakan untuk sementara kehilangan izin untuk eksis.
-
-Pasukan Asmodeus membeku.
-Asmodeus sendiri ikut diam.
-Matanya melebar.
-"Tidak…"
-
-Azatoth berjalan melewati pasukan itu.
-Setiap langkahnya membuat satu lapisan realitas kembali muncul.
-Dunia.
-Galaksi.
-Dimensi.
-Multiverse.
-Hyperverse.
-Outer realms.
-Semua muncul hanya karena ia berjalan.
-
-Asmodeus menatapnya.
-"Jadi ini kekuatanmu…"
-
-Azatoth berhenti.
-"Bukan."
-Ia menoleh.
-"Ini hanya caraku berjalan."
-
-Asmodeus tertawa pelan.
-"Gila…"
-
-Kemudian ia mencabut sesuatu dari dadanya.
-Sebuah pedang hitam.
-Tidak memiliki nama.
-Tidak memiliki bentuk tetap.
-Tidak memiliki sejarah.
-
-Namun ketika pedang itu muncul—
-Azatoth akhirnya berhenti.
-
-Asmodeus menggenggamnya.
-"Kalau semua hukum bisa kau hentikan…"
-Ia mengarahkan pedang tersebut.
-"…maka aku akan menggunakan sesuatu yang tidak memiliki hukum."
-
-THE LAST BLADE
-
-Pedang itu bergerak.
-Tidak cepat.
-Tidak lambat.
-Ia hanya—
-terjadi.
-
-Ujung pedang menembus dada Azatoth.
-Asmodeus membeku.
-Azatoth melihat pedang tersebut.
-Kemudian melihat Asmodeus.
-"Bagus."
-
-Asmodeus terkejut.
-"Bagus?"
-
-Azatoth memegang pedang itu.
-"Setidaknya kau berhasil menyentuhku."
-
-Asmodeus tersenyum.
-"Bukan itu tujuanku."
-"Apa?"
-Asmodeus mendekat.
-"Ini."
-
-Pedang tersebut retak.
-Bukan karena Azatoth menghancurkannya.
-Tetapi karena Asmodeus telah memasukkan seluruh keberadaannya ke dalam satu serangan.
-
-Tubuh Asmodeus mulai pecah.
-Sayapnya terbakar.
-Mahkotanya runtuh.
-Eksistensinya mulai menghilang.
-
-Namun ia tersenyum.
-"Sekarang aku tahu jawabannya."
-
-Azatoth diam.
-Asmodeus berbisik:
-"Makhluk absolut bukanlah makhluk yang tidak bisa dikalahkan."
-Retakan menyebar ke seluruh tubuhnya.
-"Makhluk absolut adalah makhluk yang…"
-Ia menatap Azatoth.
-"…tidak membutuhkan kemenangan untuk membuktikan dirinya."
-
-Tubuh Asmodeus hancur menjadi jutaan pecahan cahaya hitam.
-Azatoth tetap berdiri.
-Pedang itu lenyap.
-Perang berakhir.
-
-Namun—
-Azatoth melihat satu hal.
-Di tempat Asmodeus menghilang…
-terdapat sebuah mata kecil.
-Mata itu terbuka.
-Sebuah suara terdengar.
-"Pertarungan ini…"
-"…belum selesai."
-
-Azatoth menatap mata tersebut.
-Untuk pertama kalinya, ia tersenyum.
-"Memang."
-
+Namun— Azatoth melihat satu hal. Di tempat Asmodeus menghilang… terdapat sebuah mata kecil.
+Mata itu terbuka. Sebuah suara terdengar. "Pertarungan ini…" "…belum selesai."
+Azatoth menatap mata tersebut. Untuk pertama kalinya, ia tersenyum. "Memang."
 Kemudian Azatoth menghilang.`
           },
           {
@@ -879,409 +374,178 @@ Kemudian Azatoth menghilang.`
             content: `Azatoth berdiri di tengah Null Cathedral yang hancur.
 Di sekelilingnya, sisa-sisa pertempuran masih menggantung seperti bayangan yang enggan pergi.
 
-Namun Azatoth tidak memperhatikan semua itu.
-Matanya tertuju pada satu hal.
-Sebuah mata kecil.
-Mata itu terbuka di tempat Asmodeus menghilang.
-Dan mata itu menatap Azatoth.
+Namun Azatoth tidak memperhatikan semua itu. Matanya tertuju pada satu hal. Sebuah mata kecil.
+Mata itu terbuka di tempat Asmodeus menghilang. Dan mata itu menatap Azatoth.
 
 *"Pertarungan ini... belum selesai."*
+Itu suara Asmodeus. Namun di baliknya, ada suara lain. Suara yang lebih dalam, lebih tua, lebih asing.
 
-Itu suara Asmodeus.
-Namun di baliknya, ada suara lain.
-Suara yang lebih dalam, lebih tua, lebih asing.
+Azatoth berhenti. Untuk pertama kalinya sejak awal pertempuran— ia berhenti tersenyum.
 
-Azatoth berhenti.
-Untuk pertama kalinya sejak awal pertempuran—
-ia berhenti tersenyum.
-
-Mata itu berbicara lagi.
-*"Kau tidak bisa menghancurkanku, Azatoth."*
-*"Karena aku bukan bagian dari mimpimu."*
-
-Azatoth menatap mata itu.
-"Kau berasal dari luar."
-
-*"Luar? Bahkan kata itu masih terlalu kecil."*
-*"Aku berasal dari tempat di mana 'di dalam' dan 'di luar' tidak pernah dipisahkan."*
-*"Aku berasal dari Absolute Outside."*
-
-Azatoth diam.
-Ia merasakan sesuatu yang belum pernah ia rasakan:
-Ketidaktahuan.
-
-*"Kau penasaran, bukan?"*
-*"Kau ingin tahu apa yang ada di luar dirimu."*
-
-Azatoth tidak menjawab.
-Namun di dalam keheningannya, ada pengakuan yang tak terucap.
-
-Mata itu tersenyum.
-*"Kalau begitu, bukalah gerbangnya."*
-*"Dan kau akan melihat sendiri."*
+Mata itu berbicara lagi. *"Kau tidak bisa menghancurkanku, Azatoth."* *"Karena aku bukan bagian dari mimpimu."*
+Azatoth menatap mata itu. "Kau berasal dari luar."
+*"Luar? Bahkan kata itu masih terlalu kecil."* *"Aku berasal dari tempat di mana 'di dalam' dan 'di luar' tidak pernah dipisahkan."* *"Aku berasal dari Absolute Outside."*
+Azatoth diam. Ia merasakan sesuatu yang belum pernah ia rasakan: Ketidaktahuan.
+*"Kau penasaran, bukan?"* *"Kau ingin tahu apa yang ada di luar dirimu."*
+Azatoth tidak menjawab. Namun di dalam keheningannya, ada pengakuan yang tak terucap.
+Mata itu tersenyum. *"Kalau begitu, bukalah gerbangnya."* *"Dan kau akan melihat sendiri."*
 
 THE DESCENT OF IATIA
-
-Sebelum Azatoth sempat merespons—
-cahaya turun dari atas.
-Bukan cahaya biasa.
-Cahaya yang menciptakan makna.
-Cahaya itu adalah—
-IATIA.
-
-Kakak dari Azatoth.
-Sang Pencipta dari segala yang ada.
-
-Ia turun tanpa suara.
-Mata kecil itu berkedip.
-*"IATIA..."*
-
-IATIA menatap mata itu.
-"Aku sudah menduga ini akan terjadi."
-
-Azatoth menoleh ke arah kakaknya.
-"Kau tahu tentang Absolute Outside?"
-
-"Aku tahu."
-"Kenapa kau tidak pernah memberitahuku?"
-
+Sebelum Azatoth sempat merespons— cahaya turun dari atas. Bukan cahaya biasa. Cahaya yang menciptakan makna. Cahaya itu adalah— IATIA.
+Kakak dari Azatoth. Sang Pencipta dari segala yang ada.
+Ia turun tanpa suara. Mata kecil itu berkedip. *"IATIA..."*
+IATIA menatap mata itu. "Aku sudah menduga ini akan terjadi."
+Azatoth menoleh ke arah kakaknya. "Kau tahu tentang Absolute Outside?"
+"Aku tahu." "Kenapa kau tidak pernah memberitahuku?"
 "Karena ada hal-hal yang bahkan kau tidak boleh tahu, Azatoth."
-
-Azatoth menatap kakaknya.
-"Kenapa?"
-
-"Karena pengetahuan tentang Absolute Outside bukanlah pengetahuan."
-"Itu adalah undangan."
-
-Mata kecil itu tertawa.
-*"Tepat sekali."*
-*"Dan sekarang, undangan itu sudah dikirim."*
-*"Kalian berdua... sudah diundang."*
+Azatoth menatap kakaknya. "Kenapa?"
+"Karena pengetahuan tentang Absolute Outside bukanlah pengetahuan." "Itu adalah undangan."
+Mata kecil itu tertawa. *"Tepat sekali."* *"Dan sekarang, undangan itu sudah dikirim."* *"Kalian berdua... sudah diundang."*
 
 THE OPENING GATE
-
-Mata kecil itu melebar seperti luka di realitas.
-Dari dalamnya, keluar cahaya hitam.
-Cahaya yang menghapus penerangan.
-
-Seluruh Null Cathedral mulai runtuh.
-IATIA mengangkat tangannya.
-"Aku akan menahannya."
-"Tapi kau harus pergi."
-
-Azatoth menatap kakaknya.
-"Pergi ke mana?"
-
-"Ke tempat di mana kau tidak bisa bermimpi."
-"Ke Absolute Outside."
-
-Azatoth terdiam.
-"Kenapa aku?"
-
-"Karena kau adalah satu-satunya yang bisa keluar dari mimpimu sendiri."
-"Dan karena..."
-Ia menatap gerbang yang semakin melebar.
-"...hanya kau yang bisa menutupnya."
+Mata kecil itu melebar seperti luka di realitas. Dari dalamnya, keluar cahaya hitam. Cahaya yang menghapus penerangan.
+Seluruh Null Cathedral mulai runtuh. IATIA mengangkat tangannya. "Aku akan menahannya." "Tapi kau harus pergi."
+Azatoth menatap kakaknya. "Pergi ke mana?"
+"Ke tempat di mana kau tidak bisa bermimpi." "Ke Absolute Outside."
+Azatoth terdiam. "Kenapa aku?"
+"Karena kau adalah satu-satunya yang bisa keluar dari mimpimu sendiri." "Dan karena..." Ia menatap gerbang yang semakin melebar. "...hanya kau yang bisa menutupnya."
 
 THE FAREWELL
-
-Azatoth melihat gerbang itu.
-Di dalamnya, ia melihat bentuk-bentuk yang tidak memiliki bentuk.
-Dan di tengah semua itu—
-ia melihat dirinya sendiri.
-Berdiri di dalam gerbang.
-Tersenyum.
-Dan melambai.
-
-Azatoth mundur setengah langkah.
-"Kakak..."
-
-IATIA menggenggam bahunya.
-"Aku tahu kau takut."
-
-Azatoth menoleh.
-"Aku tidak takut."
-
-IATIA tersenyum.
-"Bagus."
-"Karena aku akan selalu bersamamu."
-
-Azatoth menatap kakaknya lama.
-Lalu mengangguk.
-"Aku akan kembali."
-
-IATIA melepaskan genggamannya.
-"Aku tahu."
-
-Azatoth berbalik.
-Ia melangkah menuju gerbang.
-Dan ketika ia akhirnya tiba di ambang gerbang—
-ia menoleh sekali lagi.
-"Kakak."
-
+Azatoth melihat gerbang itu. Di dalamnya, ia melihat bentuk-bentuk yang tidak memiliki bentuk. Dan di tengah semua itu— ia melihat dirinya sendiri. Berdiri di dalam gerbang. Tersenyum. Dan melambai.
+Azatoth mundur setengah langkah. "Kakak..."
+IATIA menggenggam bahunya. "Aku tahu kau takut."
+Azatoth menoleh. "Aku tidak takut."
+IATIA tersenyum. "Bagus." "Karena aku akan selalu bersamamu."
+Azatoth menatap kakaknya lama. Lalu mengangguk. "Aku akan kembali."
+IATIA melepaskan genggamannya. "Aku tahu."
+Azatoth berbalik. Ia melangkah menuju gerbang. Dan ketika ia akhirnya tiba di ambang gerbang— ia menoleh sekali lagi. "Kakak."
 "Ya?"
-
 "Jika aku tidak kembali..."
-
 "Kau akan kembali."
-
-Azatoth diam.
-Lalu tersenyum.
-"Iya."
-
+Azatoth diam. Lalu tersenyum. "Iya."
 Dan ia melangkah masuk.
 
 THE ABSOLUTE OUTSIDE
-
-Gerbang itu menutup di belakangnya.
-Azatoth berdiri di tempat yang tidak bisa disebut tempat.
-Di sini, tidak ada atas, tidak ada bawah, tidak ada dalam, tidak ada luar.
-Hanya ketiadaan yang mutlak.
-
-Namun ketiadaan di sini hidup.
-Ia bernapas, bergerak, melihat.
-
-Dan dari kedalaman ketiadaan itu—
-sebuah suara terdengar.
-
-*"Selamat datang, Azatoth."*
-*"Kami sudah menunggumu sejak sebelum kau bermimpi."*
-
-Azatoth mengepalkan tangan.
-"Siapa kalian?"
-
-*"Kami adalah apa yang kau sembunyikan dari mimpimu sendiri."*
-*"Kami adalah apa yang IATIA takutkan untuk kau ketahui."*
-*"Kami adalah..."*
-Suara itu berhenti.
-Lalu berbisik:
-*"...dirimu yang sebenarnya."*
-
-Dan dari kegelapan—
-muncul sesosok pemuda.
-Berpakaian sederhana.
-Wajah tenang.
-Mata kosong.
-Ia berdiri di hadapan Azatoth.
-
-Dan ia tersenyum.
-Senyum yang sama.
-Wajah yang sama.
-Suara yang sama.
-
-Azatoth.
-Namun bukan Azatoth yang bermimpi.
-Azatoth yang terjaga.`
+Gerbang itu menutup di belakangnya. Azatoth berdiri di tempat yang tidak bisa disebut tempat. Di sini, tidak ada atas, tidak ada bawah, tidak ada dalam, tidak ada luar. Hanya ketiadaan yang mutlak.
+Namun ketiadaan di sini hidup. Ia bernapas, bergerak, melihat.
+Dan dari kedalaman ketiadaan itu— sebuah suara terdengar.
+*"Selamat datang, Azatoth."* *"Kami sudah menunggumu sejak sebelum kau bermimpi."*
+Azatoth mengepalkan tangan. "Siapa kalian?"
+*"Kami adalah apa yang kau sembunyikan dari mimpimu sendiri."* *"Kami adalah apa yang IATIA takutkan untuk kau ketahui."* *"Kami adalah..."* Suara itu berhenti. Lalu berbisik: *"...dirimu yang sebenarnya."*
+Dan dari kegelapan— muncul sesosok pemuda. Berpakaian sederhana. Wajah tenang. Mata kosong. Ia berdiri di hadapan Azatoth.
+Dan ia tersenyum. Senyum yang sama. Wajah yang sama. Suara yang sama.
+Azatoth. Namun bukan Azatoth yang bermimpi. Azatoth yang terjaga.`
           },
           {
             title: 'The Dreamer Meets The Awake',
-            content: `Azatoth menatap sosok di hadapannya.
-Sosok yang memiliki wajahnya.
-Sosok yang memiliki suaranya.
-Namun ada perbedaan yang tak terucap.
-
-Ia bukan pantulan.
-Ia bukan ilusi.
-Ia adalah dirinya yang lain.
-
+            content: `Azatoth menatap sosok di hadapannya. Sosok yang memiliki wajahnya. Sosok yang memiliki suaranya.
+Namun ada perbedaan yang tak terucap. Ia bukan pantulan. Ia bukan ilusi. Ia adalah dirinya yang lain.
 "Kau... siapa?"
-
-Sosok itu tersenyum.
-"Aku adalah apa yang kau buang agar kau bisa bermimpi."
-"Aku adalah kesadaran yang kau tinggalkan di luar gerbang."
-
-Azatoth mengepalkan tangan.
-"Aku tidak pernah membuang apa pun."
-
-"Oh, tapi kau melakukannya."
-Sosok itu melangkah mendekat.
-"Setiap mimpi membutuhkan pemimpi."
-"Dan setiap pemimpi membutuhkan tempat untuk berdiri."
-"Kau memilih untuk berdiri di dalam mimpimu."
-"Aku... adalah apa yang tersisa di luar."
-
-Azatoth terdiam.
-Ia mencoba memahami.
-Namun di tempat ini, pemahaman adalah barang asing.
-
+Sosok itu tersenyum. "Aku adalah apa yang kau buang agar kau bisa bermimpi." "Aku adalah kesadaran yang kau tinggalkan di luar gerbang."
+Azatoth mengepalkan tangan. "Aku tidak pernah membuang apa pun."
+"Oh, tapi kau melakukannya." Sosok itu melangkah mendekat. "Setiap mimpi membutuhkan pemimpi." "Dan setiap pemimpi membutuhkan tempat untuk berdiri." "Kau memilih untuk berdiri di dalam mimpimu." "Aku... adalah apa yang tersisa di luar."
+Azatoth terdiam. Ia mencoba memahami. Namun di tempat ini, pemahaman adalah barang asing.
 "Apa yang kau inginkan?"
-
-Sosok itu berhenti.
-Matanya bertemu mata Azatoth.
-"Aku ingin kau mengingat."
-
+Sosok itu berhenti. Matanya bertemu mata Azatoth. "Aku ingin kau mengingat."
 "Mengingat apa?"
-
-"Siapa dirimu sebenarnya."
-"Sebelum kau menjadi pemimpi."
-"Sebelum IATIA memberimu peran."
-
-Azatoth merasakan sesuatu di dalam dirinya.
-Sesuatu yang lama terkubur.
-Bukan ingatan.
-Bukan perasaan.
-Melainkan... kerinduan.
-
+"Siapa dirimu sebenarnya." "Sebelum kau menjadi pemimpi." "Sebelum IATIA memberimu peran."
+Azatoth merasakan sesuatu di dalam dirinya. Sesuatu yang lama terkubur. Bukan ingatan. Bukan perasaan. Melainkan... kerinduan.
 "Siapa aku?"
-
-Sosok itu mengangkat tangannya.
-Dan menyentuh dahi Azatoth.
-
-Seketika—
-
-LEDAKAN.
-
-Bukan cahaya.
-Bukan energi.
-Melainkan gelombang kesadaran yang menghancurkan dinding-dinding mimpinya.
-
-Azatoth melihat.
-Ia melihat dirinya sendiri.
-Bukan sebagai Azatoth.
-Melainkan sebagai sesuatu yang lebih tua.
-Lebih dalam.
-Lebih sunyi.
-
-Ia melihat IATIA.
-Kakaknya.
-Sang Pencipta.
-Dan ia melihat sesuatu yang lain.
-
-Sesuatu yang bahkan IATIA tidak tahu.
-
-Ia melihat...
-
-THE TRUTH BEYOND DREAMS
-
-Azatoth membuka matanya.
-Ia masih di Absolute Outside.
-Namun sekarang ia melihat dengan mata yang berbeda.
-
-Sosok di hadapannya tersenyum.
-"Sekarang kau mengerti."
-
-Azatoth menatap tangannya.
-"Aku... bukan hanya pemimpi."
-
+Sosok itu mengangkat tangannya. Dan menyentuh dahi Azatoth.
+Seketika— LEDAKAN.
+Bukan cahaya. Bukan energi. Melainkan gelombang kesadaran yang menghancurkan dinding-dinding mimpinya.
+Azatoth melihat. Ia melihat dirinya sendiri. Bukan sebagai Azatoth. Melainkan sebagai sesuatu yang lebih tua. Lebih dalam. Lebih sunyi.
+Ia melihat IATIA. Kakaknya. Sang Pencipta. Dan ia melihat sesuatu yang lain. Sesuatu yang bahkan IATIA tidak tahu.
+Ia melihat... THE TRUTH BEYOND DREAMS.
+Azatoth membuka matanya. Ia masih di Absolute Outside. Namun sekarang ia melihat dengan mata yang berbeda.
+Sosok di hadapannya tersenyum. "Sekarang kau mengerti."
+Azatoth menatap tangannya. "Aku... bukan hanya pemimpi."
 "Tidak."
-
 "Aku adalah... pintu."
-
-Sosok itu mengangguk.
-"Kau adalah gerbang antara yang ada dan yang tidak ada."
-"Antara mimpi dan kenyataan."
-"Antara IATIA dan Absolute Outside."
-
-Azatoth menoleh.
-"Kenapa IATIA tidak memberitahuku?"
-
-"Karena jika kau tahu, kau akan mencoba menutup dirimu sendiri."
-"Dan jika kau menutup dirimu sendiri..."
-"...seluruh ciptaan akan runtuh."
-
-Azatoth terdiam.
-Ia akhirnya mengerti.
-Ia bukan adik yang berbahaya.
-Ia adalah fondasi.
-Tanpanya, tidak ada perbatasan.
-Tanpa perbatasan, tidak ada realitas.
-
+Sosok itu mengangguk. "Kau adalah gerbang antara yang ada dan yang tidak ada." "Antara mimpi dan kenyataan." "Antara IATIA dan Absolute Outside."
+Azatoth menoleh. "Kenapa IATIA tidak memberitahuku?"
+"Karena jika kau tahu, kau akan mencoba menutup dirimu sendiri." "Dan jika kau menutup dirimu sendiri..." "...seluruh ciptaan akan runtuh."
+Azatoth terdiam. Ia akhirnya mengerti. Ia bukan adik yang berbahaya. Ia adalah fondasi. Tanpanya, tidak ada perbatasan. Tanpa perbatasan, tidak ada realitas.
 "Apa yang harus kulakukan?"
-
-Sosok itu menatap gerbang di kejauhan.
-"Kau harus memilih."
-"Tetap menjadi pemimpi yang tidak tahu apa-apa."
-"Atau menjadi penjaga gerbang yang tahu segalanya."
-
-Azatoth menatap sosok itu.
-"Jika aku memilih menjadi penjaga..."
-"Apa yang terjadi padamu?"
-
-Sosok itu tersenyum sedih.
-"Aku akan menghilang."
-"Karena kau tidak lagi membutuhkan dirimu yang terjaga."
-
-Azatoth menunduk.
-Ia merasakan beban pilihan.
-Untuk pertama kalinya—
-ia merasakan apa yang disebut pengorbanan.
-
+Sosok itu menatap gerbang di kejauhan. "Kau harus memilih." "Tetap menjadi pemimpi yang tidak tahu apa-apa." "Atau menjadi penjaga gerbang yang tahu segalanya."
+Azatoth menatap sosok itu. "Jika aku memilih menjadi penjaga..." "Apa yang terjadi padamu?"
+Sosok itu tersenyum sedih. "Aku akan menghilang." "Karena kau tidak lagi membutuhkan dirimu yang terjaga."
+Azatoth menunduk. Ia merasakan beban pilihan. Untuk pertama kalinya— ia merasakan apa yang disebut pengorbanan.
 "Aku... tidak ingin melupakanmu."
-
-Sosok itu tertawa kecil.
-"Kau tidak akan melupakanku."
-"Karena aku adalah bagian dari dirimu."
-"Aku adalah keberanian yang kau butuhkan untuk bangun."
-
-Azatoth mengangkat kepalanya.
-"Kalau begitu..."
-Ia menatap sosok itu.
-"...bantu aku bangun."
-
-Sosok itu tersenyum.
-Lalu menghilang.
-
-Dan Azatoth—
-membuka matanya.
+Sosok itu tertawa kecil. "Kau tidak akan melupakanku." "Karena aku adalah bagian dari dirimu." "Aku adalah keberanian yang kau butuhkan untuk bangun."
+Azatoth mengangkat kepalanya. "Kalau begitu..." Ia menatap sosok itu. "...bantu aku bangun."
+Sosok itu tersenyum. Lalu menghilang.
+Dan Azatoth— membuka matanya.
 
 THE RETURN
-
-Ia kembali di Null Cathedral.
-IATIA berdiri di hadapannya.
-Gerbang di belakangnya perlahan menutup.
-
+Ia kembali di Null Cathedral. IATIA berdiri di hadapannya. Gerbang di belakangnya perlahan menutup.
 "Kau kembali," kata IATIA.
-
-Azatoth menatap kakaknya.
-"Aku tahu sekarang."
-
-IATIA tidak terkejut.
-"Aku tahu."
-
+Azatoth menatap kakaknya. "Aku tahu sekarang."
+IATIA tidak terkejut. "Aku tahu."
 "Kenapa kau tidak pernah memberitahuku?"
-
-"Karena kau harus menemukannya sendiri."
-IATIA menatap adiknya dengan lembut.
-"Itulah satu-satunya cara agar kau siap."
-
-Azatoth menoleh ke arah gerbang yang hampir tertutup.
-"Absolute Outside masih ada."
-
+"Karena kau harus menemukannya sendiri." IATIA menatap adiknya dengan lembut. "Itulah satu-satunya cara agar kau siap."
+Azatoth menoleh ke arah gerbang yang hampir tertutup. "Absolute Outside masih ada."
 "Ya."
-
 "Dan Asmodeus?"
-
-IATIA diam sejenak.
-"Dia telah menjadi bagian dari luar."
-"Tapi dia tidak hilang."
-"Dia hanya... berubah."
-
-Azatoth menatap kakaknya.
-"Apa yang harus kita lakukan sekarang?"
-
-IATIA tersenyum.
-"Kita menunggu."
-"Karena perang yang sebenarnya..."
-"...baru saja dimulai."
-
-Dan di kejauhan—
-di balik gerbang yang kini tertutup—
-sesuatu mengetuk.
-
-Tiga kali.
-
-TOK.
-TOK.
-TOK.
-
-Dan Azatoth tahu.
-Bahwa Absolute Outside tidak akan pernah berhenti memanggil.
-
+IATIA diam sejenak. "Dia telah menjadi bagian dari luar." "Tapi dia tidak hilang." "Dia hanya... berubah."
+Azatoth menatap kakaknya. "Apa yang harus kita lakukan sekarang?"
+IATIA tersenyum. "Kita menunggu." "Karena perang yang sebenarnya..." "...baru saja dimulai."
+Dan di kejauhan— di balik gerbang yang kini tertutup— sesuatu mengetuk.
+Tiga kali. TOK. TOK. TOK.
+Dan Azatoth tahu. Bahwa Absolute Outside tidak akan pernah berhenti memanggil.
 Karena sekarang ia tahu namanya.
+Dan nama itu adalah— AXRYZURE.`
+          }
+        ]
+      },
+      {
+        id: 'chronicles-of-the-void',
+        title: 'CHRONICLES OF THE VOID',
+        description: 'Kisah perjalanan penjaga gerbang kosmik melintasi kehampaan.',
+        chapters: [
+          {
+            title: 'The First Seal',
+            content: `Di antara bintang-bintang yang belum diberi nama, terdapat sebuah gerbang kuno yang dijaga oleh makhluk yang tidak memiliki bentuk. Namanya adalah Kaelith, Penjaga Pertama.
 
-Dan nama itu adalah—
+Selama ribuan tahun, ia berdiri di ambang kehampaan, memastikan tidak ada yang masuk atau keluar dari Void. Namun suatu hari, gerbang itu bergetar. Bukan karena serangan, melainkan karena sesuatu di dalam Void mulai terbangun.
 
-AXRYZURE.`
+Kaelith mengangkat pedangnya yang terbuat dari cahaya bintang. "Siapa yang berani membangunkan kehampaan?"
+
+Tidak ada jawaban. Hanya angin kosmik yang berhembus. Namun di kedalaman gerbang, sepasang mata terbuka. Mata yang tidak memiliki pupil. Mata yang melihat ke dalam jiwa.
+
+Dan Kaelith tahu, bahwa hari ini adalah hari terakhirnya sebagai penjaga.`
+          },
+          {
+            title: 'The Awakening of Vorn',
+            content: `Makhluk yang terbangun bernama Vorn. Ia adalah yang pertama dari banyak. Ia bukan dewa. Ia bukan iblis. Ia adalah kesalahan dalam kode realitas.
+
+Vorn melangkah keluar dari gerbang, dan di belakangnya, kehampaan mengikuti. Kaelith berdiri di hadapannya, pedang terangkat.
+
+"Kau tidak akan lewat," kata Kaelith.
+
+Vorn tersenyum. "Aku tidak lewat. Aku kembali."
+
+Dan dalam sekejap, seluruh alam semesta yang dikenal Kaelith lenyap. Digantikan oleh kegelapan yang pekat, di mana hanya suara detak jantung raksasa yang terdengar.`
+
+          }
+        ]
+      },
+      {
+        id: 'fall-of-the-primordials',
+        title: 'FALL OF THE PRIMORDIALS',
+        description: 'Ketika para dewa pertama berperang, alam semesta belum siap.',
+        chapters: [
+          {
+            title: 'The First Betrayal',
+            content: `Sebelum ada cahaya, ada kegelapan. Sebelum ada kegelapan, ada para Primordial. Mereka adalah makhluk-makhluk yang lahir dari kekacauan murni, masing-masing dengan kekuatan untuk menciptakan atau menghancurkan seluruh dimensi.
+
+Namun, di antara mereka, ada satu yang tidak puas. Namanya adalah Erebus. Ia iri pada saudara-saudaranya yang memiliki cahaya. Ia ingin memiliki cahaya itu untuk dirinya sendiri.
+
+Maka, Erebus melakukan pengkhianatan pertama. Ia mencuri Api Penciptaan dari tangan saudaranya, Uriel, dan menggunakannya untuk menciptakan dunianya sendiri— sebuah dunia di mana hanya ada bayangan.
+
+Uriel marah. Ia bersumpah untuk menghancurkan Erebus dan mengembalikan Api itu. Namun, para Primordial lain tidak setuju. Mereka takut perang akan menghancurkan semua yang telah mereka bangun.
+
+Dan dari perpecahan itu, lahirlah perang pertama.`
           }
         ]
       }
@@ -1292,8 +556,9 @@ AXRYZURE.`
     let currentUser = null;
     let currentStoryId = null;
     let currentChapterIndex = null;
+    let searchTerm = '';
 
-    // ========== DOM ELEMENTS ==========
+    // ========== DOM ==========
     const loginScreen = document.getElementById('login-screen');
     const appScreen = document.getElementById('app-screen');
     const loginForm = document.getElementById('login-form');
@@ -1303,26 +568,28 @@ AXRYZURE.`
     const mainContent = document.getElementById('main-content');
     const logoutBtn = document.getElementById('logout-btn');
     const btnAddStory = document.getElementById('btn-add-story');
+    const searchInput = document.getElementById('search-input');
 
-    // Modals
     const modalAddStory = document.getElementById('modal-add-story');
+    const modalEditStory = document.getElementById('modal-edit-story');
     const modalAddChapter = document.getElementById('modal-add-chapter');
     const modalEditChapter = document.getElementById('modal-edit-chapter');
 
-    // Form fields
     const newStoryTitle = document.getElementById('new-story-title');
     const newStoryDesc = document.getElementById('new-story-desc');
+    const editStoryTitle = document.getElementById('edit-story-title');
+    const editStoryDesc = document.getElementById('edit-story-desc');
     const newChapterTitle = document.getElementById('new-chapter-title');
     const newChapterContent = document.getElementById('new-chapter-content');
     const editChapterTitle = document.getElementById('edit-chapter-title');
     const editChapterContent = document.getElementById('edit-chapter-content');
 
-    // Buttons
     const btnSaveNewStory = document.getElementById('btn-save-new-story');
+    const btnUpdateStory = document.getElementById('btn-update-story');
     const btnSaveNewChapter = document.getElementById('btn-save-new-chapter');
     const btnUpdateChapter = document.getElementById('btn-update-chapter');
 
-    // ========== LOCALSTORAGE HELPERS ==========
+    // ========== LOCALSTORAGE ==========
     function loadStories() {
       const saved = localStorage.getItem('axryzure_stories');
       if (saved) {
@@ -1332,11 +599,9 @@ AXRYZURE.`
         saveStories();
       }
     }
-
     function saveStories() {
       localStorage.setItem('axryzure_stories', JSON.stringify(stories));
     }
-
     function loadUser() {
       const user = localStorage.getItem('axryzure_user');
       if (user) {
@@ -1346,18 +611,15 @@ AXRYZURE.`
         showLogin();
       }
     }
-
     function showLogin() {
       loginScreen.style.display = 'block';
       appScreen.style.display = 'none';
     }
-
     function showApp() {
       loginScreen.style.display = 'none';
       appScreen.style.display = 'flex';
       currentUserDisplay.textContent = currentUser ? `Penjelajah: ${currentUser}` : '';
       renderStoryList();
-      // reset main content
       mainContent.innerHTML = `<p style="color:var(--text-secondary); text-align:center; margin-top:3rem;">Pilih cerita dari daftar untuk mulai membaca.</p>`;
       currentStoryId = null;
       currentChapterIndex = null;
@@ -1365,20 +627,57 @@ AXRYZURE.`
 
     // ========== RENDER ==========
     function renderStoryList() {
+      const filteredStories = stories.filter(story => 
+        story.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        story.description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
       storyListEl.innerHTML = '';
-      stories.forEach(story => {
+      filteredStories.forEach(story => {
         const li = document.createElement('li');
         li.className = 'story-list-item' + (story.id === currentStoryId ? ' active' : '');
         li.innerHTML = `
           <div>${story.title}</div>
           <div class="story-desc">${story.description || ''}</div>
+          <div class="story-actions">
+            <button class="btn btn-outline btn-sm btn-edit-story" data-id="${story.id}" style="font-size:0.65rem;">Edit</button>
+            <button class="btn btn-danger btn-sm btn-delete-story" data-id="${story.id}" style="font-size:0.65rem;">Hapus</button>
+          </div>
         `;
-        li.addEventListener('click', () => {
+        li.addEventListener('click', (e) => {
+          if (e.target.closest('button')) return;
           currentStoryId = story.id;
           renderStoryList();
           renderChapterList(story.id);
         });
         storyListEl.appendChild(li);
+      });
+
+      // event listeners untuk tombol edit/hapus cerita
+      document.querySelectorAll('.btn-edit-story').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const storyId = btn.dataset.id;
+          const story = stories.find(s => s.id === storyId);
+          if (story) {
+            editStoryTitle.value = story.title;
+            editStoryDesc.value = story.description || '';
+            window._editStoryId = storyId;
+            openModal('modal-edit-story');
+          }
+        });
+      });
+      document.querySelectorAll('.btn-delete-story').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const storyId = btn.dataset.id;
+          if (confirm('Hapus cerita ini beserta semua babnya?')) {
+            stories = stories.filter(s => s.id !== storyId);
+            saveStories();
+            if (currentStoryId === storyId) currentStoryId = null;
+            renderStoryList();
+            mainContent.innerHTML = `<p style="color:var(--text-secondary); text-align:center; margin-top:3rem;">Pilih cerita dari daftar untuk mulai membaca.</p>`;
+          }
+        });
       });
     }
 
@@ -1413,7 +712,6 @@ AXRYZURE.`
 
       mainContent.innerHTML = html;
 
-      // Tambahkan event listener untuk tombol tambah bab
       const addChapterBtn = document.getElementById('btn-add-chapter');
       if (addChapterBtn) {
         addChapterBtn.addEventListener('click', () => {
@@ -1421,16 +719,14 @@ AXRYZURE.`
         });
       }
 
-      // Event listener untuk item chapter (buka chapter)
       document.querySelectorAll('.chapter-item').forEach(item => {
         item.addEventListener('click', (e) => {
-          if (e.target.closest('button')) return; // jangan buka jika klik tombol
+          if (e.target.closest('button')) return;
           const index = parseInt(item.dataset.index);
           openChapterView(storyId, index);
         });
       });
 
-      // Event listener untuk tombol edit
       document.querySelectorAll('.btn-edit-chapter').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -1439,7 +735,6 @@ AXRYZURE.`
         });
       });
 
-      // Event listener untuk tombol hapus
       document.querySelectorAll('.btn-delete-chapter').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -1480,25 +775,21 @@ AXRYZURE.`
     function openModal(modalId) {
       document.getElementById(modalId).classList.add('active');
     }
-
     function closeModal(modalId) {
       document.getElementById(modalId).classList.remove('active');
     }
-
     function openEditChapterModal(storyId, chapterIndex) {
       const story = stories.find(s => s.id === storyId);
       if (!story || chapterIndex >= story.chapters.length) return;
       const chapter = story.chapters[chapterIndex];
       editChapterTitle.value = chapter.title;
       editChapterContent.value = chapter.content;
-      // simpan referensi sementara
       window._editStoryId = storyId;
       window._editChapterIndex = chapterIndex;
       openModal('modal-edit-chapter');
     }
 
     // ========== EVENT LISTENERS ==========
-    // Login
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = usernameInput.value.trim();
@@ -1508,11 +799,16 @@ AXRYZURE.`
       showApp();
     });
 
-    // Logout
     logoutBtn.addEventListener('click', () => {
       localStorage.removeItem('axryzure_user');
       currentUser = null;
       showLogin();
+    });
+
+    // Pencarian
+    searchInput.addEventListener('input', (e) => {
+      searchTerm = e.target.value;
+      renderStoryList();
     });
 
     // Tambah Cerita
@@ -1521,14 +817,10 @@ AXRYZURE.`
       newStoryDesc.value = '';
       openModal('modal-add-story');
     });
-
     btnSaveNewStory.addEventListener('click', () => {
       const title = newStoryTitle.value.trim();
       const desc = newStoryDesc.value.trim();
-      if (!title) {
-        alert('Judul cerita wajib diisi.');
-        return;
-      }
+      if (!title) { alert('Judul cerita wajib diisi.'); return; }
       const newStory = {
         id: 'story-' + Date.now(),
         title: title,
@@ -1543,18 +835,29 @@ AXRYZURE.`
       renderChapterList(newStory.id);
     });
 
+    // Edit Cerita
+    btnUpdateStory.addEventListener('click', () => {
+      const storyId = window._editStoryId;
+      if (!storyId) return;
+      const story = stories.find(s => s.id === storyId);
+      if (!story) return;
+      const title = editStoryTitle.value.trim();
+      const desc = editStoryDesc.value.trim();
+      if (!title) { alert('Judul tidak boleh kosong.'); return; }
+      story.title = title;
+      story.description = desc || 'Tanpa deskripsi';
+      saveStories();
+      closeModal('modal-edit-story');
+      renderStoryList();
+      if (currentStoryId === storyId) renderChapterList(storyId);
+    });
+
     // Tambah Chapter
     btnSaveNewChapter.addEventListener('click', () => {
-      if (!currentStoryId) {
-        alert('Pilih cerita terlebih dahulu.');
-        return;
-      }
+      if (!currentStoryId) { alert('Pilih cerita terlebih dahulu.'); return; }
       const title = newChapterTitle.value.trim();
       const content = newChapterContent.value.trim();
-      if (!title || !content) {
-        alert('Judul dan isi bab wajib diisi.');
-        return;
-      }
+      if (!title || !content) { alert('Judul dan isi bab wajib diisi.'); return; }
       const story = stories.find(s => s.id === currentStoryId);
       if (!story) return;
       story.chapters.push({ title, content });
@@ -1574,10 +877,7 @@ AXRYZURE.`
       if (!story || chapterIndex >= story.chapters.length) return;
       const title = editChapterTitle.value.trim();
       const content = editChapterContent.value.trim();
-      if (!title || !content) {
-        alert('Judul dan isi tidak boleh kosong.');
-        return;
-      }
+      if (!title || !content) { alert('Judul dan isi tidak boleh kosong.'); return; }
       story.chapters[chapterIndex].title = title;
       story.chapters[chapterIndex].content = content;
       saveStories();
@@ -1585,12 +885,9 @@ AXRYZURE.`
       renderChapterList(storyId);
     });
 
-    // Klik di luar modal untuk menutup (opsional)
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
       overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-          overlay.classList.remove('active');
-        }
+        if (e.target === overlay) overlay.classList.remove('active');
       });
     });
 
